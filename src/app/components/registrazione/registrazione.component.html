@@ -1,0 +1,32 @@
+<div class="container" style="margin-top: 50px;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2><font color="blue"></font> Form per registrazione clienti</h2>
+        </div>
+        <div class="panel-body">
+            <form class="col-md-4" [formGroup]="registrazioneForm" (ngSubmit)="processaForm()">
+                <div class="form-group">
+                    <input type="hidden" id="id" name="id" class="form-control" [(ngModel)]="utente.id" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" class="form-control"
+                    [(ngModel)]="utente.nome" [formControl]="nome"
+                    pattern="^[a-zA-Z]+$">
+                </div>
+                <div *ngIf="nome.hasError('pattern')">
+                    <font color="red">Sono consentite solo lettere nel nome</font>
+                </div>
+
+            </form>
+        </div>
+        
+        
+
+
+
+    </div>
+
+
+</div>
