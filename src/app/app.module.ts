@@ -15,8 +15,9 @@ import { ArticoloService } from './services/articolo.service';
 
 const routes:Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path:'home', component: RegistrazioneComponent},
-  {path:'articoli', component: ArticolilistComponent}
+  {path:'home', component: ArticolilistComponent},
+  {path:'articoli', component: ArticolilistComponent},
+  {path:'articoliform', component: ArticoloformComponent}
 ]
 
 @NgModule({

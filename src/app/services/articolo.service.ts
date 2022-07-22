@@ -8,7 +8,7 @@ import { Articolo } from '../articolo';
 })
 export class ArticoloService {
   private articolo!: Articolo;
-  private baseUrl: string = 'http://127.0.0.1:8080/WebService/api/articoloservice';
+  private baseUrl: string = 'http://127.0.0.1:8080/NegozioOnline/api/articoloservice';
   private httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin' : '*',

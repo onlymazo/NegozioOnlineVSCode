@@ -24,12 +24,12 @@ export class ArticolilistComponent implements OnInit {
   createArticolo() {
     let articolo = new Articolo;
     this._articoloService.setter(articolo);
-    this._router.navigate(['/form']);
+    this._router.navigate(['/articoliform']);
   }
 
   updateArticolo(articolo : Articolo) {
     this._articoloService.setter(articolo);
-    this._router.navigate(['/form']);
+    this._router.navigate(['/articoliform']);
   }
 
   deleteArticolo(articolo : Articolo) {
