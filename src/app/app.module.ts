@@ -10,10 +10,13 @@ import { ArticolilistComponent } from './components/articolilist/articolilist.co
 import { ArticoloformComponent } from './components/articoloform/articoloform.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { UtenteService } from './services/utente.service';
+import { ArticoloService } from './services/articolo.service';
+
 
 const routes:Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path:'home', component: RegistrazioneComponent}
+  {path:'home', component: RegistrazioneComponent},
+  {path:'articoli', component: ArticolilistComponent}
 ]
 
 @NgModule({
@@ -21,7 +24,7 @@ const routes:Routes = [
     AppComponent,
     ArticolilistComponent,
     ArticoloformComponent,
-    RegistrazioneComponent,
+    RegistrazioneComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ const routes:Routes = [
   ],
   providers: [
     {provide:APP_BASE_HREF, useValue:'/'},
-    UtenteService
+    UtenteService,
+    ArticoloService
   ],
   bootstrap: [AppComponent]
 })
