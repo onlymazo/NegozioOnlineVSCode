@@ -1,1 +1,26 @@
-<p>articolilist works!</p>
+<div class="page-header">
+    <h3>Lista articoli</h3>
+</div>
+<div>
+    <table class="table table-striped" style="margin-top: 50px;">
+    <thead>
+        <th>ID</th>
+        <th>Marca</th>
+        <th>Modello</th>
+        <th>Prezzo</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of articoli">
+            <td>{{ a.id }}</td>
+            <td>{{ a.marca }}</td>
+            <td>{{ a.modello }}</td>
+            <td>{{ a.prezzo }}</td>
+            <td><button class="btn btn-warning btn-sm" (click)="updateArticolo(a)">Update</button></td>
+            <td><button class="btn btn-danger btn-sm" (click) = "deleteArticolo(c)">Delete</button></td>
+        </tr>
+    </tbody>
+    </table>
+    <button class="btn btn-primary" style="margin-top: 50px;" (click)="createArticolo()">Nuovo Articolo</button>
+</div>
