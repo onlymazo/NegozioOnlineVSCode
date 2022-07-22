@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UtenteService } from 'src/app/services/utente.service';
 import { Utente } from 'src/app/utente';
 
 @Component({
@@ -16,7 +17,7 @@ export class RegistrazioneComponent implements OnInit {
   username!:FormControl;
   password!:FormControl;
 
-  constructor(private _router:Router, fb:FormBuilder) {
+  constructor(private _utenteService:UtenteService, private _router:Router, fb:FormBuilder) {
     this.registrazioneForm = fb.group({
       'nome' : ['', Validators.required],
       'nascita' : ['', Validators.required],
@@ -30,7 +31,13 @@ export class RegistrazioneComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.utente = this._utenteService.getter();
   }
 
-  processaForm() {}
+  processaForm() {
+    this._utenteService.createUtente(this.utente).subscribe((c) => {
+      console.log(c);
+      this._router.navigate(['/']);
+    });
+  }
 }
